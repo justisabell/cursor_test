@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}Sub-page{% endblock %}
+
+{% block extra_style %}
+    <style>
+        /* Subpage: different background and font colour */
+        body {
+            background-color: #d20dbe;
+            color: #b5d9c5;
+        }
+        a.button {
+            background-color: #a415cc;
+            color: #b5d9c5;
+        }
+        a.button:hover {
+            background-color: #a20a8b;
+        }
+        /* Container: hide text when it goes off the sides */
+        .scroll-container {
+            overflow: hidden;
+            width: 100%;
+            height: 4rem;
+            margin-top: -3rem;
+            margin-bottom: 2rem; 
+        }
+        .slide-text {
+            position: absolute;
+            white-space: nowrap;
+            animation: slideAcross 6s linear infinite;
+            z-index: 1;
+            font-weight: bold;
+        }
+        @keyframes slideAcross {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(100vw);
+            }
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="scroll-container">
+        <h1 class="slide-text">Hello bitches!</h1>
+    </div>
+    <a href="{% url 'home' %}" class="button">Back to home</a>
+{% endblock %}
